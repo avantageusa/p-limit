@@ -1,6 +1,6 @@
 {
-	"name": "p-limit",
-	"version": "5.0.0",
+	"name": "@av-common/p-limit",
+	"version": "5.0.0-av-prerelease-1",
 	"description": "Run multiple promise-returning & async functions with limited concurrency",
 	"license": "MIT",
 	"repository": "sindresorhus/p-limit",
@@ -10,10 +10,13 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "https://sindresorhus.com"
 	},
-	"type": "module",
+	"main": "cjs/index.js",
+	"module": "index.js",
+	"types": "index.d.ts",
 	"exports": {
 		"types": "./index.d.ts",
-		"default": "./index.js"
+		"require": "./cjs/index.js",
+		"import": "./index.js"
 	},
 	"imports": {
 		"#async_hooks": {
@@ -25,9 +28,11 @@
 		"node": ">=18"
 	},
 	"scripts": {
+		"build": "tsc",
 		"test": "xo && ava && tsd"
 	},
 	"files": [
+		"cjs/**/*",
 		"index.js",
 		"index.d.ts",
 		"async-hooks-stub.js"
@@ -59,6 +64,7 @@
 		"random-int": "^3.0.0",
 		"time-span": "^5.1.0",
 		"tsd": "^0.29.0",
+		"typescript": "^5.3.2",
 		"xo": "^0.56.0"
 	}
 }
